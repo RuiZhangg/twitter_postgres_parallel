@@ -355,7 +355,7 @@ def _insert_tweets(connection,input_tweets):
         for medium in media:
             tweet_media.append({
                 'id_tweets':tweet['id'],
-                'url':remove_null(medium['media_url']),
+                'url':remove_nulls(medium['media_url']),
                 'type':medium['type']
                 })
 
