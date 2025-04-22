@@ -5,14 +5,13 @@ files=$(find data/*)
 echo '================================================================================'
 echo 'load pg_denormalized'
 echo '================================================================================'
-for file in data/*; do
-    time echo "$files" | parallel ./load_denormalized.sh
-done
+time echo "$files" | parallel ./load_denormalized.sh
 
 
 echo '================================================================================'
 echo 'load pg_normalized'
 echo '================================================================================'
+time echo "$files" | parallel python3 -u load_tweets.py --db=postgresql://postgres:pass@localhost:6002/ --input={}
 
 echo '================================================================================'
 echo 'load pg_normalized_batch'
