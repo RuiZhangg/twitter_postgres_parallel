@@ -1,5 +1,4 @@
 name: tests_denormalized_parallel
-        docker compose exec -T pg_denormalized ./run_tests.sh
 on:
   push:
     branches: ['*']
