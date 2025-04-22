@@ -65,7 +65,7 @@ CREATE INDEX tweets_index_withheldincountries ON tweets USING gin(withheld_in_co
 CREATE TABLE tweet_urls (
     id_tweets BIGINT,
     url TEXT,
-    PRIMARY KEY (id_tweets, url),
+    PRIMARY KEY (id_tweets),
     FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED,
 );
 
@@ -93,7 +93,7 @@ CREATE TABLE tweet_media (
     id_tweets BIGINT,
     url TEXT,
     type TEXT,
-    PRIMARY KEY (id_tweets, url),
+    PRIMARY KEY (id_tweets),
     FOREIGN KEY (id_tweets) REFERENCES tweets(id_tweets) DEFERRABLE INITIALLY DEFERRED
 );
 
